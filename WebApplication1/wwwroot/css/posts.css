@@ -1,0 +1,32 @@
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    height: auto;
+    width: auto;
+}
+.post {
+    width: 1000px;
+    height: auto;
+    margin: 20px 0;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+    position: relative;
+
+}
+.post > div {
+    height: 1px;
+    width: 980px;
+    position: relative;
+    left: 10px;
+    background-color: black;
+    border-radius: inherit;
+    opacity: 0.3;
+}
+.post > p {
+    text-align: justify;
+    text-justify: inter-word;
+}

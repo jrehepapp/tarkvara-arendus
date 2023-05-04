@@ -1,0 +1,56 @@
+﻿@page
+@model PostModel
+@{
+    ViewData["Title"] = "Post";
+}
+@section styles{
+    <link rel = 'stylesheet' href = '@Url.Content("~/css/post.css")'/>
+}
+<a asp-page="/Index" class = "topic shadow">Pealeht</a>
+<div class = "posting-container-container">
+    <div class = "posting-container shadow">
+        <h3>@ViewData["confirmation"]</h3>
+        <form method = "post">
+            <div class = "form">
+                <label for = "title">Pealkiri</label>
+                <input type = "text" class = "title-cont" name = "title">
+                </br>
+                <label for = "content">Sisu</label>
+                <textarea name = "content" class = "content-container" maxlength="3000" contenteditable></textarea>
+                </br>
+                <div class = "radios">
+                    <div class = "radio">
+                        <input type = "radio" id = "sport" name = "topic" value = "sport">
+                        <label for = "sport">Sport</label>
+                    </div>
+                    <div class = "radio">
+                        <input type = "radio" id = "naljakas" name = "topic" value = "naljakas">
+                        <label for = "naljakas">Naljakas</label>
+                    </div>
+                    <div class = "radio">
+                        <input type = "radio" id = "toit" name = "topic" value = "toit">
+                        <label for = "toit">Toit</label>
+                    </div>
+                    <div class = "radio">
+                        <input type = "radio" id = "autod" name = "topic" value = "autod">
+                        <label for = "autod">Autod</label>
+                    </div>
+                    <div class = "radio">
+                        <input type = "radio" id = "fotograafia" name = "topic" value = "fotograafia">
+                        <label for = "fotograafia">Fotograafia</label>
+                    </div>
+                    <div class = "radio">
+                        <input type = "radio" id = "tehnoloogia" name = "topic" value = "tehnoloogia">
+                        <label for = "tehnoloogia">Tehnoloogia</label>
+                    </div>
+                    <div class = "radio">
+                        <input type = "radio" id = "mood" name = "topic" value = "mood">
+                        <label for = "mood">Mood</label>
+                    </div>
+                </div>
+            </div>
+            <input type = "submit" value = "Postita">
+        </form>
+        <p>@ViewData["nodata"]</p>
+    </div>
+</div>

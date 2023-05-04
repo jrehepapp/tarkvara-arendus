@@ -1,17 +1,38 @@
-﻿@* @page
-@model IndexModel
+﻿@page
+@model WebApplication1.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
-} *@
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </head>
-    <body>
-        <div class="ad1"></div>
-        <div class="ad2"></div>
-        
+}
+@section styles{
+    <link rel = 'stylesheet' href = '@Url.Content("~/css/home.css")'/>
+    <link rel = 'stylesheet' href = '@Url.Content("~/css/posts.css")'/>
+}
 
-    </body>
-</html>
+<nav class = "topics">
+    <a asp-page="/Sport" class = "topic shadow">Sport</a>
+    <a asp-page="/Naljakas" class = "topic shadow">Naljakas</a>
+    <a asp-page="/Toit" class = "topic shadow">Toit</a>
+    <a asp-page="/Autod" class = "topic shadow">Autod</a>
+    <a asp-page="/Foto" class = "topic shadow">Fotograafia</a>
+    <a asp-page="/Tehnoloogia" class = "topic shadow">Tehnoloogia</a>
+    <a asp-page="/Mood" class = "topic shadow">Mood</a>
+    <a asp-page="/Post" class="topic shadow">Postita</a>
+</nav>
+<div class = "post-container">
+@for (int i = 0; i < 10; i++) {
+    @if (i < Model.datecount) {
+        @:<div class = "post shadow">
+    }
+    @if (i < Model.titlecount) {
+        <h2>@Model.PostTitles[i]</h2>
+        <div></div>
+    }
+    @if (i < Model.contentcount) {
+        <p>@Model.Contentlist[i]</p>
+    }
+    @if (i < Model.datecount) {
+        <h6>@Model.Datelist[i]</h6>
+        @:</div>
+    } else {break;}
+}
+</div>

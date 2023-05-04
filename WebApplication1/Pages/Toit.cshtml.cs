@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
+
 
 namespace WebApplication1.Pages
 {
-    public class IndexModel : PageModel
+    public class ToitModel : PageModel
     {
         public List<string> PostTitles { get; set; }
         public List<string> Contentlist { get; set; }
@@ -32,7 +35,7 @@ namespace WebApplication1.Pages
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sqlQuery = $"SELECT top 10 {Column} FROM posts order by date, postid desc;";
+                string sqlQuery = $"SELECT {Column} FROM posts where topic = 'toit' order by date, postid desc;";
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, connection))
                 {
                     using (SqlDataReader dataReader = cmd.ExecuteReader())
@@ -63,7 +66,3 @@ namespace WebApplication1.Pages
         }
     }
 }
-// namespace DBConnection {
-//     public class DbRepository {
-//     }
-// }

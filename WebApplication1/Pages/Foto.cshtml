@@ -1,0 +1,26 @@
+﻿@page
+@model FotoModel
+@{
+    ViewData["Title"] = "Foto";
+}
+@section styles{
+    <link rel = 'stylesheet' href = '@Url.Content("~/css/posts.css")'/>
+}
+<a asp-page="/Index" class = "topic shadow">Pealeht</a>
+<div class = "post-container">
+@for (int i = 0; i < Model.datecount; i++) {
+    @if (i < Model.datecount) {
+        @:<div class = "post shadow">
+    }
+    @if (i < Model.titlecount) {
+        <h2>@Model.PostTitles[i]</h2>
+    }
+    @if (i < Model.contentcount) {
+        <p>@Model.Contentlist[i]</p>
+    }
+    @if (i < Model.datecount) {
+        <h6>@Model.Datelist[i]</h6>
+        @:</div>
+    } else {break;}
+}
+</div>
