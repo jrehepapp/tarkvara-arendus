@@ -13,6 +13,8 @@ namespace WebApplication1.Pages
         public int titlecount { get; set; }
         public int contentcount { get; set; }
         public int datecount { get; set; }
+        public string ad1 { get; set; }
+        public string ad2 { get; set; }
 
         public void OnGet()
         {
@@ -22,6 +24,8 @@ namespace WebApplication1.Pages
             titlecount = postcount(PostTitles);
             contentcount = postcount(Contentlist);
             datecount = postcount(Datelist);
+            ad1 = adnumber();
+            ad2 = adnumber();
         }
 
         public List<string> GetAllPostTitles(string Column)
@@ -60,6 +64,11 @@ namespace WebApplication1.Pages
                 countt ++;
             }
             return countt;
+        }
+        public string adnumber() {
+            Random rnd = new Random();
+            // return $"src='~/images/ad{rnd.Next(8,13).ToString()}.jpg'";
+            return "~/images/ad12.jpg";
         }
     }
 }
